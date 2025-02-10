@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+   <title>Chatbot with Voice</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+         html,body{
+                background-color: slategrey;
+                color:white;
+            }
+        .container{
+            margin:120px auto;
+            padding: 20px;
+            border:0;
+            border-radius: 12px 14px;
+            width: 50%;
+            text-align: center;
+            justify-items: center;
+            background-color: slategrey;
+        }
+        img{
+                width: 50%;
+                border: 0;
+                border-radius: 50%;
+            }
+        button{
+            padding: 15px;
+            background-color: green;
+            border: 4px solid white;
+            border-radius: 6px;
+            color: white;
+        }
+        h1{
+            color: white;
+            font-family:Verdana, Geneva, Tahoma, sans-serif ;
+            letter-spacing: 2px;
+            border: 1px solid gray;
+            padding: 6px;
+        }
+        a{
+            color: gray;
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            background-color:white;
+            font-size: x-large;
+            padding: 12px;
+            border-right: 10px solid blue;
+        }
+        .user-entry{
+            float:right;
+            margin-top: 34px;
+        }
+
+
+        fieldset{
+            width: 100%;
+            background-color: white;
+            color:#000;
+        }
+legend img{
+  margin-left: 12px;
+}
+ input{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-bottom: 2px solid blue;
+    background-color: transparent;
+    color: black;
+    outline: none;
+    text-align: left;
+   gap: 6px;
+
+ }
+ ::placeholder{
+    font-family: fantasy;
+    font-size: x-large;
+   
+ }
+
+
+        @media screen and (max-width:600px) {
+            html{
+                background-color: slategrey;
+            }
+            .container{
+                width: 100%;
+                height: 350px;
+                margin:180px auto;
+            }
+            img{
+                width: 50%;
+              
+                border: 0;
+                border-radius: 50%;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="user-entry">
+        <a href="#" id="loginModal">Login</a>
+    </div>
+    <br><br>
+   <div class="container" id="mainDiv">
+   <img src="./images.png" alt="chatbot">
+    <h1>AI-Chatbot</h1>
+    <p id="chat"></p>
+    <button onclick="startChat()">Start Chat</button>
+    <p style="color: white; font-family: 'Courier New', Courier, monospace; font-size: x-large; text-align: center; margin-bottom: 50px;">PoweredBy <span>CodekingDev <sup>++</sup></span></p>
+   </div>
+   <div class="container" id="loginDiv" style="display: none;">
+     <fieldset>
+        
+        <legend><img src="./logo.jpeg" alt=""><span id="goBack" style="float: right; background-color: #1d52e4; width: 50px;padding: 6px; color: #fff;">&timesbar;</span></legend>
+        <br>
+        
+        <br>
+        <p style="color: white; background-color: gray; font-size: x-large; border: 1px solid gray ;padding: 4px;">signIn to Get started</p>
+        <br><br>
+        <input type="email" id="email" placeholder="Enter Email" required>
+        <br>
+     <br> <br>
+        <input type="password" id="password" placeholder="Enter password">
+        <br>
+        <button type="submit" style="width: 100%; background-color: black;">Login</button>
+        <button style="width: 100%; background-color: rgb(51, 203, 214);" id="signUpBTn">SignUp &rAarr;</button>
+     </fieldset>
+   </div>
+   <!--SignUp Region-->
+   <div class="container" id="signupDiv" style="display: none;">
+    <fieldset>
+       
+       <legend><img src="./logo.jpeg" alt=""></legend>
+       <br>
+       
+       <br>
+       <p style="color: white; background-color: rgb(0, 127, 211); font-size: x-large; border: 1px solid gray ;padding: 4px;">Become a member today</p>
+       <br><br>
+       <input type="email" id="email" placeholder="Enter Email" required>
+       <br>
+    <br> <br>
+       <input type="password" id="password" placeholder="Enter password">
+       <br>
+       <button type="submit" style="width: 100%; background-color: rgb(51, 203, 214);">SignUp</button>
+       <button style="width: 100%; background-color: black;" onclick="indexpg()">&lArr; GoBack </button>
+    </fieldset>
+  </div>
+   <script>
+    const loginBtn= document.getElementById('loginModal').addEventListener('click',()=>{
+        document.getElementById('mainDiv').style.display="none";
+        document.getElementById('signupDiv').style.display="none";
+        document.getElementById('loginDiv').style.display="block";
+        document.getElementById('loginModal').style.display="none";
+    })
+    document.getElementById('goBack').addEventListener('click',()=>{
+        document.getElementById('mainDiv').style.display="block";
+        document.getElementById('loginDiv').style.display="none";
+        document.getElementById('signupDiv').style.display="none";
+        document.getElementById('loginModal').style.display="block";
+    })
+    document.getElementById('signUpBTn').addEventListener('click',()=>{
+        document.getElementById('mainDiv').style.display="none";
+        document.getElementById('loginDiv').style.display="none";
+        document.getElementById('signupDiv').style.display="block";
+        document.getElementById('loginModal').style.display="none";
+    })
+ const indexpg=()=>{
+        document.getElementById('mainDiv').style.display="block";
+        document.getElementById('loginDiv').style.display="none";
+        document.getElementById('signupDiv').style.display="none";
+        document.getElementById('loginModal').style.display="block";
+    }
+   </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech & NLP Chat</title>
+</head>
+<body>
+    <button onclick="startChat()">Start Chat</button>
+    <p id="chat">Click "Start Chat" to begin.</p>
+
+    <script type="module">
+        import { NlpManager } from 'https://cdn.jsdelivr.net/npm/node-nlp@4.26.1/+esm';
+
+        // ✅ Initialize NLP Manager
+        const nlp = new NlpManager({ languages: ['en'] });
+
+        // ✅ Add NLP training data
+        nlp.addDocument('en', 'my name is %name%', 'name');
+        nlp.addDocument('en', 'I am %age% years old', 'age');
+        nlp.addDocument('en', 'my favorite color is %color%', 'color');
+        nlp.addDocument('en', 'I like to %hobby%', 'hobby');
+
+        let currentQuestion = 0;
+        let collectedSpeech = "";
+
+        async function startChat() {
+            document.getElementById("chat").textContent = "Training AI...";
+            await nlp.train();
+            document.getElementById("chat").textContent = "AI Ready! Starting chat...";
+            setTimeout(askQuestion, 2000);
+        }
+
+        // ✅ Predefined questions
+        const questions = [
+            "What is your name?",
+            "How old are you?",
+            "What is your favorite color?",
+            "What do you like to do in your free time?",
+            "gaffo?"
+        ];
+
+        function askQuestion() {
+            if (currentQuestion < questions.length) {
+                let question = questions[currentQuestion];
+                document.getElementById("chat").textContent = question;
+                collectedSpeech = "";
+
+                let utterance = new SpeechSynthesisUtterance(question);
+
+                // ✅ Speech ends → Start listening
+                utterance.onend = function() {
+                    recognition.start();
+                    setTimeout(stopListening, 180000); // Listen for 3 minutes
+                };
+
+                window.speechSynthesis.speak(utterance);
+            } else {
+                document.getElementById("chat").textContent = "Thank you for your answers!";
+            }
+        }
+
+        function stopListening() {
+            recognition.stop();
+            processSpeech();
+        }
+
+        // ✅ Initialize Speech Recognition
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = "en-US";
+        recognition.interimResults = true;
+        recognition.continuous = true;
+
+        recognition.onresult = function(event) {
+            collectedSpeech = "";
+            for (let i = 0; i < event.results.length; i++) {
+                collectedSpeech += event.results[i][0].transcript + " ";
+            }
+            document.getElementById("chat").textContent = "Listening... " + collectedSpeech;
+        };
+
+        async function processSpeech() {
+            let response = await nlp.process('en', collectedSpeech);
+            let speechText = `You said: ${collectedSpeech}. Detected intent: ${response.intent || 'unknown'}`;
+            let speech = new SpeechSynthesisUtterance(speechText);
+            window.speechSynthesis.speak(speech);
+
+            document.getElementById("chat").textContent = "OK, it is taken.";
+            currentQuestion++;
+            setTimeout(askQuestion, 3000);
+        }
+
+        recognition.onerror = function(event) {
+            console.log("Speech recognition error: " + event.error);
+            document.getElementById("chat").textContent = "Sorry, I couldn't hear you. Please try again.";
+            recognition.stop();
+            setTimeout(askQuestion, 3000);
+        };
+
+        // ✅ Make startChat globally accessible
+        window.startChat = startChat;
+
+    </script>
+</body>
+</html>
+
